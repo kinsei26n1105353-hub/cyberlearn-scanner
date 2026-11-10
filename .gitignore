@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+# 生成物（レポートに秘密情報を含めないこと！ / Never commit secrets）
+reports/*.jsonl
+reports/scan_*.json
+# 個人のスキャン結果を公開したくない場合は下行のコメントを外す
+# reports/
+.vscode/
+.idea/

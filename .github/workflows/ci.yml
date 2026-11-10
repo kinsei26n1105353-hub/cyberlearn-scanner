@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # 外部依存なし（標準ライブラリのみ）/ stdlib only, no pip install needed
+      - name: Run unit tests
+        run: python -m unittest discover tests -v
+      - name: Syntax check (compileall)
+        run: python -m compileall src tests
